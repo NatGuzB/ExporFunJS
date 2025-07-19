@@ -71,15 +71,15 @@ console.log(usuario2);
 ///////////////////////////////Ejercicio5//////////////////////
 
 // Crear usuarios
-const usuarioAdmin   = crearUsuario("Pedro", ROLES.ADMIN);
+const usuarioAdmin = crearUsuario("Pedro", ROLES.ADMIN);
 const usuarioCliente = crearUsuario("Carlos", ROLES.CLIENTE);
 
 // Compra ADMIN
-const subtotalAdmin         = calcularTotal(25, 4); // 100
-const totalImpuestoAdmin    = aplicarImpuestos(subtotalAdmin); // 115
-const totalFinalAdmin       = aplicarDescuentoPorRol(totalImpuestoAdmin, usuarioAdmin); // 92
+const subtotalAdmin = calcularTotal(25, 4); 
+const totalImpuestoAdmin = aplicarImpuestos(subtotalAdmin); 
+const totalFinalAdmin = aplicarDescuentoPorRol(totalImpuestoAdmin, usuarioAdmin); 
 
-console.log("🛒 Compra ADMIN");
+console.log("Compra ADMIN");
 console.log("Usuario:", usuarioAdmin.nombre);
 console.log("Rol:", usuarioAdmin.rol);
 console.log("Fecha:", usuarioAdmin.fechaRegistro);
@@ -89,11 +89,11 @@ console.log("Con descuento:", totalFinalAdmin);
 console.log("");
 
 // Compra CLIENTE
-const subtotalCliente       = calcularTotal(50, 3); // 150
-const totalImpuestoCliente  = aplicarImpuestos(subtotalCliente); // 172.5
-const totalFinalCliente     = aplicarDescuentoPorRol(totalImpuestoCliente, usuarioCliente); // 155.25
+const subtotalCliente = calcularTotal(50, 3); 
+const totalImpuestoCliente = aplicarImpuestos(subtotalCliente); 
+const totalFinalCliente = aplicarDescuentoPorRol(totalImpuestoCliente, usuarioCliente); 
 
-console.log("🛒 Compra CLIENTE");
+console.log("Compra CLIENTE");
 console.log("Usuario:", usuarioCliente.nombre);
 console.log("Rol:", usuarioCliente.rol);
 console.log("Fecha:", usuarioCliente.fechaRegistro);
