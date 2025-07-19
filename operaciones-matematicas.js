@@ -1,5 +1,6 @@
-// operaciones-matematicas.js
-import { PI, IVA, DESCUENTO } from './consta.js';
+
+import { PI, IVA, DESCUENTO, DESCUENTO1 } from './consta.js';
+import {ROLES} from "./Ejercicio4/usuariosConstantes.js";
 
 export function sumar(a, b) {
   return a + b;
@@ -27,4 +28,19 @@ export function aplicarImpuestos(total) {
 
 export function aplicarDescuento(total) {
   return total * (1 - DESCUENTO);
+}
+
+
+/////////////Ejercicio5/////////
+
+export function aplicarDescuentoPorRol(total, usuario) {
+  let descuento = 0;
+
+  if (usuario.ROLES === 'admin') {
+    descuento = DESCUENTO1.ADMIN;
+  } else {
+    descuento = DESCUENTO1.CLIENTE;
+  }
+
+  return total * (1 - descuento);
 }

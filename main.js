@@ -1,4 +1,4 @@
-import { PI, IVA, DIAS_SEMANA, DESCUENTO } from './consta.js';
+import { PI, IVA, DIAS_SEMANA, DESCUENTO, DESCUENTO1 } from './consta.js';
 import { 
     sumar, 
     restar, 
@@ -6,8 +6,11 @@ import {
     areaCirculo,   
     calcularTotal, 
     aplicarImpuestos, 
-    aplicarDescuento 
+    aplicarDescuento,
+    aplicarDescuentoPorRol
 } from './operaciones-matematicas.js';
+import {ROLES} from "./Ejercicio4/usuariosConstantes.js";
+import {crearUsuario, esAdmin } from "./Ejercicio4/usuarios.js";
 
 
 /////////////////Ejercicio 1///////////////////////
@@ -56,4 +59,44 @@ console.log("Total final con descuento (", DESCUENTO * 100, "%): $", totalConDes
 
 
 ///////////////////////////////Ejercicio4//////////////////////
+
+const usuario1 = crearUsuario('Pedro', ROLES.ADMIN);
+const usuario2 = crearUsuario('Carlos', ROLES.CLIENTE);
+
+console.log(usuario1);
+console.log(usuario2);
+
+
+
+///////////////////////////////Ejercicio5//////////////////////
+
 // Crear usuarios
+const usuarioAdmin   = crearUsuario("Pedro", ROLES.ADMIN);
+const usuarioCliente = crearUsuario("Carlos", ROLES.CLIENTE);
+
+// Compra ADMIN
+const subtotalAdmin         = calcularTotal(25, 4); // 100
+const totalImpuestoAdmin    = aplicarImpuestos(subtotalAdmin); // 115
+const totalFinalAdmin       = aplicarDescuentoPorRol(totalImpuestoAdmin, usuarioAdmin); // 92
+
+console.log("🛒 Compra ADMIN");
+console.log("Usuario:", usuarioAdmin.nombre);
+console.log("Rol:", usuarioAdmin.rol);
+console.log("Fecha:", usuarioAdmin.fechaRegistro);
+console.log("Subtotal:", subtotalAdmin);
+console.log("Con impuesto:", totalImpuestoAdmin);
+console.log("Con descuento:", totalFinalAdmin);
+console.log("");
+
+// Compra CLIENTE
+const subtotalCliente       = calcularTotal(50, 3); // 150
+const totalImpuestoCliente  = aplicarImpuestos(subtotalCliente); // 172.5
+const totalFinalCliente     = aplicarDescuentoPorRol(totalImpuestoCliente, usuarioCliente); // 155.25
+
+console.log("🛒 Compra CLIENTE");
+console.log("Usuario:", usuarioCliente.nombre);
+console.log("Rol:", usuarioCliente.rol);
+console.log("Fecha:", usuarioCliente.fechaRegistro);
+console.log("Subtotal:", subtotalCliente);
+console.log("Con impuesto:", totalImpuestoCliente);
+console.log("Con descuento:", totalFinalCliente);
